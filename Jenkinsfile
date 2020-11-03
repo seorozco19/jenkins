@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building Image..'
                 sh """
-                docker-compose up -d 
+                docker build . 
                 docker images
                 curl localhost:8000
                 """
