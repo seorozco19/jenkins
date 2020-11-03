@@ -12,9 +12,13 @@ pipeline {
                 """
             }
         }
-        stage('AWS Assume Role') {
+        stage('AWS') {
             steps {
-                echo 'Testing the code..'
+		withAWS(credentials: 'aws-credentials', region:'us-east-1'){
+			sh "aws iam get-user"
+
+		}               
+
             }
         }
         stage('Deploy') {
