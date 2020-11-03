@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building Image..'
                 sh """
                 docker --version 
-		whereis docker
+		service docker start
                 docker build . 
                 docker images
                 curl localhost:8000
