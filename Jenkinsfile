@@ -2,15 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build Dockerfile') {
             steps {
-                echo 'Building first Code..'
-                sh "echo hola"
-                sh "uname -a"
-                sh "docker --version"
+                echo 'Building Image..'
+                sh """
+                docker-compose up -d 
+                docker images
+                curl localhost:8000
+                """
             }
         }
-        stage('test1') {
+        stage('AWS Assume Role') {
             steps {
                 echo 'Testing the code..'
             }
