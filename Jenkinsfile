@@ -6,8 +6,9 @@ pipeline {
             steps {
                 echo 'Building Image..'
                 sh """
-                systemctl start docker
-		docker build . 
+                docker --version 
+		whereis docker
+                docker build . 
                 docker images
                 curl localhost:8000
                 """
