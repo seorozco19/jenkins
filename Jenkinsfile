@@ -6,7 +6,8 @@ pipeline {
             steps {
                 echo 'Building first Code..'
                 sh "echo hola"
-                sh "ls"
+                sh "uname -a"
+                sh "docker --version"
             }
         }
         stage('test1') {
