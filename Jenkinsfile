@@ -11,6 +11,7 @@ pipeline {
                 docker build . 
                 docker images
                 curl localhost:8000
+		echo terminando proceso
                 """
             }
         }
